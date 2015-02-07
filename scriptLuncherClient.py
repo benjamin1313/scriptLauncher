@@ -1,9 +1,9 @@
 import socket
 
-HOST = "localhost"
-PORT = 5070
+host = "localhost"
+port = 5070
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-s.connect((HOST, PORT))
+s.connect((host, port))
 scripts = s.recv(2048)
 print scripts
 while True:
@@ -12,7 +12,7 @@ while True:
     if message == "!exit":
         break
     print "Awaiting reply"
-    reply = s.recv(1024)
+    reply = s.recv(2048)
     print "Received ", repr(reply)
 
 s.close()
